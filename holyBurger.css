@@ -1,0 +1,32 @@
+.burgerHealth {
+    width: calc(49% - 4px);
+    height:20%;
+    border: 2px solid green;
+    border-radius: 10px;
+    background-color: lightcoral;
+    float:left;
+}
+
+.burgerInnerHealth {
+    height:100%;
+    width:75%;
+    border-radius: 7px;
+    background-color:green;
+    transition: width .5s linear;
+}
+
+.enemyHealth {
+    width:calc(49% - 4px);
+    border: 2px solid darkred;
+    border-radius: 10px;
+    height:20%;
+    background-color: lightcoral;
+    float:right;
+}
+.enemyInnerHealth {
+    height:100%;
+    width:30%;
+    border-radius: 7px;
+    background-color:darkred;
+    transition: width .5s linear;
+}
