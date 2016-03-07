@@ -1,3 +1,7 @@
+canvas {
+  background-color:black;
+}
+
 .burgerHealth {
     width: calc(49% - 4px);
     height:20%;

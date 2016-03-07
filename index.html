@@ -1,18 +1,15 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="holyBurger.css">
+    <link href='https://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
     <script src="holyBurger.js"></script>
 </head>
     
-<body>
+<body onload="initializeScreen()">
     <h1>Holy Burger Template</h1>
-
-    <div class="canvasDiv" style="background-color:blue;height:350px;width:450px"> <!--TODO Make more dynamic css classes for screen sizes(sm, md, lg) -->
-        <canvas>
-        </canvas>
-    </div>
-
-    <div class="controlsDiv" style="background-color:orange;height:200px;width:450px"> <!--TODO Make more dynamic css classes for screen sizes(sm, md, lg) -->
+    <canvas id="gameScreen"></canvas>
+    <p style="font-family:Slackey; position:absolute; top:-5000px">.</p>
+    <div id="controlsDiv" class="controlsDiv" style="background-color:orange;height:200px;width:450px">
         
         <div class="statusBars">
             <div class="burgerHealth">
