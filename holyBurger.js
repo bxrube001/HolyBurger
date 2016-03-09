@@ -2,11 +2,11 @@ var height = 0;
 var width = 0;
 
 function changeBurgerHealth(newPercent) {
-    document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
+  document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
 }
 
 function changeEnemyHealth(newPercent) {
-    document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
+  document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
 }
 
 /****************************************************
@@ -38,7 +38,7 @@ function loadHolyMolies(molies) {
  * Author: Joseph Nixon
  *******************************************************/
 function saveCharacter() {
-    localStorage.setItem('savedCharacter', JSON.stringify(holyBurger));
+  localStorage.setItem('savedCharacter', JSON.stringify(holyBurger));
 }
 
 /*******************************************************
@@ -46,12 +46,12 @@ function saveCharacter() {
 * Author: Joseph Nixon
 *******************************************************/
 function loadCharacter() {
-    if (!localStorage) {
-        return;
-    }
-    var tempChar = JSON.parse(localStorage('savedCharacter'));
-    holyBurger.attackValue = tempChar.attackValue;
-    holyBurger.healthPoints = tempChar.healthPoints;
-    holyBurger.defense = tempChar.defense;
-    holyBurger.currency = tempChar.currency;
+  if (!localStorage) {
+    return;
+  }
+  var tempChar = JSON.parse(localStorage('savedCharacter'));
+  holyBurger.attackValue = tempChar.attackValue;
+  holyBurger.healthPoints = tempChar.healthPoints;
+  holyBurger.defense = tempChar.defense;
+  holyBurger.currency = tempChar.currency;
 }
