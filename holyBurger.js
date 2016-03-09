@@ -30,7 +30,7 @@ function loadHolyMolies(molies) {
   screen.font = '24px "Slackey" cursive';
   screen.fillStyle = '#FFDF00';
   screen.textBaseline = 'top';
-  screen.fillText  (molies, width*0.01, height * 0.01);
+  screen.fillText  (molies, width*0.01, height * 0.01); //Fills screen with number of molies
 }
 
 /*******************************************************
