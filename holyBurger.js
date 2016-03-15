@@ -1,5 +1,7 @@
-var height = 0;
-var width = 0;
+var height = 0;  //used for screen height
+var width = 0;   //used for screen width
+var enemyAttack; //used for the periodical enemy strikes
+var attackRate = 1000/1; //number of periodical attacks per second
 
 function changeBurgerHealth(newPercent) {
   document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
@@ -54,4 +56,28 @@ function loadCharacter() {
   holyBurger.healthPoints = tempChar.healthPoints;
   holyBurger.defense = tempChar.defense;
   holyBurger.currency = tempChar.currency;
+}
+
+/*************************************************
+ * Toggle Sound
+ *************************************************/
+function toggleSound() {
+  var sound = document.getElementById("backgroundSound");
+  if(sound.muted === true){
+    sound.muted = false;
+  }
+  else {
+    sound.muted = true;
+  }
+}
+
+/**************************************************
+ * Start Enemy Attack (Periodical function)
+ **************************************************/
+function startEnemyAttack() {
+  enemyAttack = setInterval(attack(enemy, character), attackRate); //have the enemy attack the character periodically
+}
+
+function endEnemyAttack() {
+  clearInterval(enemyAttack); //Halt enemy onslaught
 }
