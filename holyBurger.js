@@ -223,3 +223,53 @@ function gameOver()
 	isGameOver = true;
 	alert(‘Looks like Holy Burger is now Holy Charcoal.’);
 }
+
+/********************************************************
+* Function for Progress Bar
+*********************************************************/
+function increaseAttack() {
+    if (holyMolies >= (upAttack)) {
+        attack += 5;
+        holyMolies -= upAttack;
+   		upAttack = attack *2;
+    }
+}
+
+function increaseDefense() {
+    if (holyMolies >= (upDefense)) {
+        defense += 5;
+        holyMolies -= upDefense;
+   		upDefense = defense *3;
+        //
+    }
+}
+
+function increaseHelth() {
+    if (holyMolies >= (upHealth)) {
+        health += 50;
+        holyMolies -= upHealth;//
+        upHealth = health *4;
+    }
+}
+/********************************************************
+* Update Progress Bar
+*********************************************************/
+function attackBar(){
+	document.getElementById("increaseAttack").style.width = newPercent + "%";
+}
+
+function defenseBar(){
+	document.getElementById("increaseDefense").style.width = newPercent + "%";
+}
+
+function healthBar(){
+	document.getElementById("increaseHealth").style.width = newPercent + "%";
+}
+function updateBars(){
+	newAttack=holyMolies/upAttack;
+	document.getElementById("attackUpBar").style.width = newAttack % 1";
+	newDefense=holyMolies/upD;
+	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1";
+	newHealth=holyMolies/upAttack;
+	document.getElementById("healthUpBar").style.width = newHealth % 1;";
+}
