@@ -1,7 +1,8 @@
 var height = 0;  //used for screen height
 var width = 0;   //used for screen width
 var enemyAttack; //used for the periodical enemy strikes
-var attackRate = 1000/1; //number of periodical attacks per second
+var attackInterval = 1;
+var attackRate = 1000/attackInterval; //number of periodical attacks per second
 
 function changeBurgerHealth(newPercent) {
 	document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
