@@ -1,8 +1,9 @@
 var height = 0;  //used for screen height
 var width = 0;   //used for screen width
 var enemyAttack; //used for the periodical enemy strikes
-var attackInterval = 1;
+var attackInterval = 1; //number of attacks per second
 var attackRate = 1000/attackInterval; //number of periodical attacks per second
+var enemies = []; //array of enemies
 
 function changeBurgerHealth(newPercent) {
 	document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
@@ -190,8 +191,6 @@ function createEnemy()
 	return enemy;
 }
 
-enemies = [];
-
 /*******************************************************
 * function destroyEnemy
 * Author: Patti Jones
@@ -267,9 +266,9 @@ function healthBar(){
 }
 function updateBars(){
 	newAttack=holyMolies/upAttack;
-	document.getElementById("attackUpBar").style.width = newAttack % 1";
+	document.getElementById("attackUpBar").style.width = newAttack % 1;
 	newDefense=holyMolies/upD;
-	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1";
+	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1;
 	newHealth=holyMolies/upAttack;
-	document.getElementById("healthUpBar").style.width = newHealth % 1;";
+	document.getElementById("healthUpBar").style.width = newHealth % 1;
 }
