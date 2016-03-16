@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //var enemyObject = new EnemyObject();
 //var GameObject = new GameObject();
 /*
@@ -13,7 +14,5 @@ function startGame()
 {
     
 }
-
-
 
 

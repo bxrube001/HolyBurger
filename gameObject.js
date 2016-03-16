@@ -37,14 +37,6 @@ function loadHolyMolies(molies) {
   screen.fillText  (molies, width*0.01, height * 0.01); //Fills screen with number of molies
 }
 
-function changeBurgerHealth(newPercent) {
-  document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
-}
-
-function changeEnemyHealth(newPercent) {
-  document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
-}
-
 /*************************************************
  * Toggle Sound
  *************************************************/
@@ -66,4 +58,65 @@ function gameOver()
 {
 	isGameOver = true;
 	alert("Looks like Holy Burger is now Holy Charcoal.");
+}
+
+function changeBurgerHealth(newPercent) {
+  document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
+}
+
+function changeEnemyHealth(newPercent) {
+  document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
+}
+
+
+//TODO there's some redundant code and errors down here? \/
+
+/********************************************************
+* Function for Progress Bar
+*********************************************************/
+function increaseAttack() {
+    if (holyMolies >= (upAttack)) {
+        attack += 5;
+        holyMolies -= upAttack;
+   		upAttack = attack *2;
+    }
+}
+
+function increaseDefense() {
+    if (holyMolies >= (upDefense)) {
+        defense += 5;
+        holyMolies -= upDefense;
+   		upDefense = defense *3;
+        //
+    }
+}
+
+function increaseHelth() {
+    if (holyMolies >= (upHealth)) {
+        health += 50;
+        holyMolies -= upHealth;//
+        upHealth = health *4;
+    }
+}
+/********************************************************
+* Update Progress Bar
+*********************************************************/
+function attackBar(){
+	document.getElementById("increaseAttack").style.width = newPercent + "%";
+}
+
+function defenseBar(){
+	document.getElementById("increaseDefense").style.width = newPercent + "%";
+}
+
+function healthBar(){
+	document.getElementById("increaseHealth").style.width = newPercent + "%";
+}
+function updateBars(){
+	newAttack=holyMolies/upAttack;
+	document.getElementById("attackUpBar").style.width = newAttack % 1;
+	newDefense=holyMolies/upD;
+	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1;
+	newHealth=holyMolies/upAttack;
+	document.getElementById("healthUpBar").style.width = newHealth % 1;
 }
