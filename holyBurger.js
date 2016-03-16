@@ -4,35 +4,35 @@ var enemyAttack; //used for the periodical enemy strikes
 var attackRate = 1000/1; //number of periodical attacks per second
 
 function changeBurgerHealth(newPercent) {
-  document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
+	document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
 }
 
 function changeEnemyHealth(newPercent) {
-  document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
+	document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
 }
 
 /****************************************************
  * Sets up canvas and div by determining screen size
  ****************************************************/
 function initializeScreen() {
-  width = window.innerWidth;                //get window width
-  height = window.innerHeight;              //get window height
-  document.getElementById("gameScreen").width = width * 0.98;  //set canvas width to 98%
-  document.getElementById("gameScreen").height = height * 0.7; //set canvas height to 70%
-  document.getElementById("controlsDiv").style.width = width * 0.98;  //set div width to 98% 
-  document.getElementById("controlsDiv").style.height = height * 0.3; //set div height to 30%
-  loadHolyMolies(0);
+	width = window.innerWidth;                //get window width
+	height = window.innerHeight;              //get window height
+	document.getElementById("gameScreen").width = width * 0.98;  //set canvas width to 98%
+	document.getElementById("gameScreen").height = height * 0.7; //set canvas height to 70%
+	document.getElementById("controlsDiv").style.width = width * 0.98;  //set div width to 98% 
+	document.getElementById("controlsDiv").style.height = height * 0.3; //set div height to 30%
+	loadHolyMolies(0);
 }
 
 /*******************************************************
  * Updates Holy Molies. Takes a number.
  *******************************************************/
 function loadHolyMolies(molies) {
-  var screen = document.getElementById("gameScreen").getContext('2d');;
-  screen.font = '24px "Slackey" cursive';
-  screen.fillStyle = '#FFDF00';
-  screen.textBaseline = 'top';
-  screen.fillText  (molies, width*0.01, height * 0.01); //Fills screen with number of molies
+	var screen = document.getElementById("gameScreen").getContext('2d');
+	screen.font = '24px "Slackey" cursive';
+	screen.fillStyle = '#FFDF00';
+	screen.textBaseline = 'top';
+	screen.fillText  (molies, width*0.01, height * 0.01); //Fills screen with number of molies
 }
 
 /*******************************************************
@@ -40,7 +40,7 @@ function loadHolyMolies(molies) {
  * Author: Joseph Nixon
  *******************************************************/
 function saveCharacter() {
-  localStorage.setItem('savedCharacter', JSON.stringify(holyBurger));
+	localStorage.setItem('savedCharacter', JSON.stringify(holyBurger));
 }
 
 /*******************************************************
@@ -48,38 +48,38 @@ function saveCharacter() {
 * Author: Joseph Nixon
 *******************************************************/
 function loadCharacter() {
-  if (!localStorage) {
-    return;
-  }
-  var tempChar = JSON.parse(localStorage('savedCharacter'));
-  holyBurger.attackValue = tempChar.attackValue;
-  holyBurger.healthPoints = tempChar.healthPoints;
-  holyBurger.defense = tempChar.defense;
-  holyBurger.currency = tempChar.currency;
+	if (!localStorage) {
+		return;
+	}
+	var tempChar = JSON.parse(localStorage('savedCharacter'));
+	holyBurger.attackValue = tempChar.attackValue;
+	holyBurger.healthPoints = tempChar.healthPoints;
+	holyBurger.defense = tempChar.defense;
+	holyBurger.currency = tempChar.currency;
 }
 
 /*************************************************
  * Toggle Sound
  *************************************************/
 function toggleSound() {
-  var sound = document.getElementById("backgroundSound");
-  if(sound.muted === true){
-    sound.muted = false;
-  }
-  else {
-    sound.muted = true;
-  }
+	var sound = document.getElementById("backgroundSound");
+	if(sound.muted === true){
+		sound.muted = false;
+	}
+	else {
+		sound.muted = true;
+	}
 }
 
 /**************************************************
  * Start Enemy Attack (Periodical function)
  **************************************************/
 function startEnemyAttack() {
-  enemyAttack = setInterval(attack(enemy, character), attackRate); //have the enemy attack the character periodically
+	enemyAttack = setInterval(attack(enemy, character), attackRate); //have the enemy attack the character periodically
 }
 
 function endEnemyAttack() {
-  clearInterval(enemyAttack); //Halt enemy onslaught
+	clearInterval(enemyAttack); //Halt enemy onslaught
 }
 
 /*******************************************************
@@ -97,7 +97,7 @@ function Character()
 {
 	this.attackValue = 1;
 	this.healthPoints = 20;
-            this.defense = 1;
+	this.defense = 1;
 	this.currency = 0;
 }
 	
@@ -169,24 +169,24 @@ function attack(attacker,defender)
 
 function createEnemy()
 {
-var randomNum = Math.floor(Math.random() *3); //0,1,2
+	var randomNum = Math.floor(Math.random() *3); //0,1,2
 
-//var enemy = new Enemy(randomNum);
+	//var enemy = new Enemy(randomNum);
 
-var enemy;
-if (randomNum == 0)
-{
-enemy = new Enemy(enemyTypes.pistolPep);
-}
-else if (randomNum == 1)
-{
-enemy = new Enemy(enemyTypes.slimShakey);
-}
-else
-{
-	enemy = new Enemy(enemyTpes.terribleTom);
-}
-return enemy;
+	var enemy;
+	if (randomNum == 0)
+	{
+		enemy = new Enemy(enemyTypes.pistolPep);
+	}
+	else if (randomNum == 1)
+	{
+		enemy = new Enemy(enemyTypes.slimShakey);
+	}
+	else
+	{
+		enemy = new Enemy(enemyTpes.terribleTom);
+	}
+	return enemy;
 }
 
 enemies = [];
