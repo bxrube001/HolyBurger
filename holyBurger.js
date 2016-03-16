@@ -2,6 +2,13 @@ var height = 0;  //used for screen height
 var width = 0;   //used for screen width
 var enemyAttack; //used for the periodical enemy strikes
 var attackRate = 1000/1; //number of periodical attacks per second
+var holyMolies = 0; //starting Holy Molies count
+var health = 100;//starting Health count
+var defense = 10;//starting Defense count
+var attack = 5; //starting Attack count
+var upAttack = attack * 2;//level up storage for attack
+var upDefense = defense * 3; //level up storage for defense
+var upHealth = health * 4; //level up storage for health
 
 function changeBurgerHealth(newPercent) {
   document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
@@ -82,6 +89,7 @@ function endEnemyAttack() {
   clearInterval(enemyAttack); //Halt enemy onslaught
 }
 
+<<<<<<< Updated upstream
 /*******************************************************
 * Character & Enemy
 * Author: Patti Jones
@@ -222,3 +230,59 @@ function gameOver()
 	isGameOver = true;
 	alert(‘Looks like Holy Burger is now Holy Charcoal.’);
 }
+=======
+/**************************************************
+ * Level Up Functions - Health, Defense, and Attack
+ **************************************************/
+function increaseAttack() {
+    if (holyMolies >= (upAttack)) {
+        attack += 5;
+        holyMolies -= upAttack;
+   		upAttack = attack *2;
+    }
+}
+
+function increaseDefense() {
+    if (holyMolies >= (upDefense)) {
+        defense += 5;
+        holyMolies -= upDefense;
+   		upDefense = defense *3;
+        //
+    }
+}
+
+function increaseHelth() {
+    if (holyMolies >= (upHealth)) {
+        health += 50;
+        holyMolies -= upHealth;//
+        upHealth = health *4;
+    }
+}
+
+/**************************************************
+* Progress Bars for Attack, Defense, and Health
+***************************************************/
+
+function attackBar(){
+	document.getElementById("increaseAttack").style.width = newPercent + "%";
+}
+
+function defenseBar(){
+	document.getElementById("increaseDefense").style.width = newPercent + "%";
+}
+
+function healthBar(){
+	document.getElementById("increaseHealth").style.width = newPercent + "%";
+}
+function updateBars(){
+	newAttack=holyMolies/upAttack;
+	document.getElementById("attackUpBar").style.width = newAttack % 1";
+	newDefense=holyMolies/upD;
+	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1";
+	newHealth=holyMolies/upAttack;
+	document.getElementById("healthUpBar").style.width = newHealth % 1;";
+}
+
+
+
+>>>>>>> Stashed changes
