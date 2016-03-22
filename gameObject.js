@@ -60,10 +60,18 @@ function gameOver()
 	alert("Looks like Holy Burger is now Holy Charcoal.");
 }
 
+/******************************************************
+ * Change Burger Health (used for the bar)
+ * @param newPercent
+ ******************************************************/
 function changeBurgerHealth(newPercent) {
   document.getElementById("burgerInnerHealth").style.width = newPercent + "%";
 }
 
+/************************************************************
+ * Change Enemy Health (Used for the bar)
+ * @param newPercent
+ ************************************************************/
 function changeEnemyHealth(newPercent) {
   document.getElementById("enemyInnerHealth").style.width = newPercent + "%";
 }
@@ -98,6 +106,7 @@ function increaseHelth() {
         upHealth = health *4;
     }
 }
+
 /********************************************************
 * Update Progress Bar
 *********************************************************/
@@ -112,6 +121,7 @@ function defenseBar(){
 function healthBar(){
 	document.getElementById("increaseHealth").style.width = newPercent + "%";
 }
+
 function updateBars(){
 	newAttack=holyMolies/upAttack;
 	document.getElementById("attackUpBar").style.width = newAttack % 1;
