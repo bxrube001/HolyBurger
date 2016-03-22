@@ -16,7 +16,7 @@ function EnemyObject(enemyType) {
 	this.createEnemy = createEnemy;
 	this.attack = attack;
 
-
+	//Check for enemy type
 	if (enemyType == "pistolPep")
 	{
 		this.healthPoints = 7;
