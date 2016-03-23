@@ -1,6 +1,27 @@
 //Global Variables
 var enemyAttack; //used for the periodical enemy strikes
-var attackRate = 1000/1; //number of periodical attacks per second
+var attackRate = 1000/1; 	//number of periodical attacks per second
+var frameRate = 1000 / 20;
+var frame = 0;				//used to track current frame
+var enemyXLocation = parseInt(15);
+var enemyYLocation = parseInt(15);
+var enemyCanvas = null;
+var enemyContext = null;
+var ketchupAssets = [
+	'resources/KeriKetchup/keriketchup00.png'
+];
+var peteAssets = [
+	'resources/PicklePete/picklepete00.png'
+];
+var pepAssets = [
+	'resources/PistolPep/pistolpep00.png'
+];
+var tomAssets = [
+	'resources/TerribleTom/terribletom00.png'
+];
+var animationFrames = [];	//used to store animation frames
+var standingImage = null;	//used to store current still-frame of enemy
+var animated;				//used to track animation status
 
 enemies = [];
 
@@ -15,13 +36,14 @@ function EnemyObject(enemyType) {
 	this.destroyEnemy = destroyEnemy;
 	this.createEnemy = createEnemy;
 	this.attack = attack;
+	this.enemyType = enemyType;
 
 	//Check for enemy type
 	if (enemyType == "pistolPep")
 	{
 		this.healthPoints = 7;
 	}
-	else if (enemyType == "slimShakey")
+	else if (enemyType == "picklePete")
 	{
 		this.attackValue = 2;
 	}
@@ -34,7 +56,7 @@ function EnemyObject(enemyType) {
 	{
 		//throw ArgumentException('Enemy type not recognized.')
 	}
-}
+};
 
 /*******************************************************
  * function destroyEnemy
@@ -43,8 +65,9 @@ function EnemyObject(enemyType) {
 
 function destroyEnemy(enemy)
 {
-	holyBurger.currency += enemy.currencyValue;
-	loadHolyMolies(holyBurger.currency);
+	//holyBurger.currency += enemy.currencyValue;
+	//loadHolyMolies(holyBurger.currency);
+	enemyContext.clearRect(enemyXLocation, enemyYLocation, 600, 600);
 
 	/********
 	 * Two options here. Option 1 is to pop the last enemy. This is appropriate while we only have one.
@@ -63,7 +86,7 @@ function destroyEnemy(enemy)
 		//    }
 		//}
 	endEnemyAttack();
-}
+};
 
 /*******************************************************
  * function createEnemy
@@ -74,14 +97,16 @@ function createEnemy()
 {
 	var enemyType = [
 		"pistolPep",
-		"slimShakey",
+		"picklePete",
 		"terribleTom"
 	]; //using an array instead of an object association is a bit quicker and easier to handle.
 	var randomNum = Math.floor(Math.random() *3); //0,1,2
-	var enemy = new Enemy(enemyType[randomNum]);  //just get the string value of whatever array member corresponds with the random number
+	var enemy = new EnemyObject(enemyType[randomNum]);  //just get the string value of whatever array member corresponds with the random number
+	enemies.push(enemy);
+	drawInitial(enemyType[randomNum]);
 	startEnemyAttack();
 	return enemy;
-}
+};
 
 function attack(attacker,defender)
 {
@@ -104,16 +129,64 @@ function attack(attacker,defender)
 			gameOver();
 		}
 	}
-}
+};
 
 /**************************************************
  * Start Enemy Attack (Periodical function)
  **************************************************/
 function startEnemyAttack() {
-	enemyAttack = setInterval(attack(enemies[0], holyBurger), attackRate); //have the enemy attack the character periodically
-}
+	//enemyAttack = setInterval(attack(enemies[0], holyBurger), attackRate); //have the enemy attack the character periodically
+};
 
 function endEnemyAttack() {
 	clearInterval(enemyAttack); //Halt enemy onslaught
 	enemyAttack = null;
-}
+};
+
+function drawInitial(enemyType) {
+	enemyCanvas = document.getElementById("gameScreen");
+	enemyContext = enemyCanvas.getContext("2d");
+	standingImage = new Image();
+	switch(enemyType) {
+		case "pistolPep":
+			standingImage.src = "resources/PistolPep/pistolpep00.png";
+			standingImage.onload = function () {
+				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
+			};
+			for(var i = 0; i < pepAssets.length; i++) {
+				animationFrames.push(new Image());
+				animationFrames[i].src = pepAssets[i];
+			}
+			break;
+		case "keriKetchup":
+			standingImage.src = 'resources/KeriKetchup/keriketchup00.png';
+			standingImage.onload = function () {
+				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
+			};
+			for(var i = 0; i < ketchupAssets.length; i++) {
+				animationFrames.push(new Image());
+				animationFrames[i].src = ketchupAssets[i];
+			}
+			break;
+		case "terribleTom":
+			standingImage.src = 'resources/TerribleTom/terribletom00.png';
+			standingImage.onload = function () {
+				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
+			};
+			for(var i = 0; i < tomAssets.length; i++) {
+				animationFrames.push(new Image());
+				animationFrames[i].src = tomAssets[i];
+			}
+			break;
+		case "picklePete":
+			standingImage.src = 'resources/PicklePete/picklepete00.png';
+			standingImage.onload = function () {
+				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
+			};
+			for(var i = 0; i < peteAssets.length; i++) {
+				animationFrames.push(new Image());
+				animationFrames[i].src = peteAssets[i];
+			}
+			break;
+	}
+};
