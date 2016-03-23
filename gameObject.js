@@ -34,7 +34,7 @@ function resize() {
   var optimalRatio = Math.min(scaleToFitX, scaleToFitY);
   var canvas = document.getElementById("gameScreen");
 
-  if(currentRatio >= 1.77 && currentRatio < = 1.79) {
+  if(currentRatio >= 1.77 && currentRatio <= 1.79) {
     canvas.style.width = width + "px";
     canvas.style.height = height + "px";
   }
