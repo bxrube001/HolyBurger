@@ -1,38 +1,45 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="holyBurger.css">
-    <link href='https://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <script src="holyBurgerObject.js"></script>
-    <script src="holyBurger.js"></script>
-    <script src="enemyObject.js"></script>
-    <script src="gameObject.js"></script>
-</head>
-    
-<body onload="initializeScreen()">
-    <canvas id="gameScreen" height="1600" width="1600" z-index="0"></canvas>
-    <p style="font-family:Slackey; position:absolute; top:-5000px">.</p> <!-- Necessary for font loading. DO NOT REMOVE! -->
-    <!--<div id="controlsDiv" class="controlsDiv" style="background-color:orange;height:200px;width:450px">
-        <div class="statusBars">
+    <head>
+        <link rel="stylesheet" type="text/css" href="holyBurger.css">
+        <link href='https://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+        <script src="holyBurgerObject.js"></script>
+        <script src="holyBurger.js"></script>
+        <script src="enemyObject.js"></script>
+        <script src="gameObject.js"></script>
+    </head>
+
+    <body onload="initializeScreen()">
+        <div class="wrapper">
+            <div class="container">
+                <div class="canvas-container">
+                    <canvas id="gameScreen" height=480 width="800"></canvas>
+                    <p style="font-family:Slackey; position:absolute; top:-5000px">.</p> <!-- Necessary for font loading. DO NOT REMOVE! -->
+                    <!--<div id="controlsDiv" class="controlsDiv" style="background-color:orange;height:200px;width:450px">
+                        <div class="statusBars">
+                        </div>
+                        <div class="burgerHealth">
+                            <div class="burgerInnerHealth" id="burgerInnerHealth"></div>
+                        </div>
+                        <div class="enemyHealth">
+                            <div class="enemyInnerHealth" id="enemyInnerHealth"></div>
+                        </div>
+                        <div class="increaseAttack">
+                            <div class="attackBar" id ="attackUpBar"></div>
+                        </div><!--increaseAttack--
+                        <div class="increaseAttack">
+                            <div class="defenseBar" id ="defenseUpBar"></div>
+                        </div><!--increaseDefense--
+                        <div class="increaseAttack">
+                            <div class="healthBar" id ="healthUpBar"></div>
+                        </div><!--increaseHealth--
+                        <div class="controls"></div>
+                        </div>
+                    </div>-->
+
+                    <button onclick="createEnemy();">CLICK ME TO CREATE</button>
+                    <button onclick="destroyEnemy();">CLICK ME TO DESTROY</button>
+                </div>
+            </div>
         </div>
-        <div class="burgerHealth">
-            <div class="burgerInnerHealth" id="burgerInnerHealth"></div>
-        </div>
-        <div class="enemyHealth">
-            <div class="enemyInnerHealth" id="enemyInnerHealth"></div>
-        </div>
-        <div class="increaseAttack">
-            <div class="attackBar" id ="attackUpBar"></div>
-        </div><!--increaseAttack--
-        <div class="increaseAttack">
-            <div class="defenseBar" id ="defenseUpBar"></div>
-        </div><!--increaseDefense--
-        <div class="increaseAttack">
-            <div class="healthBar" id ="healthUpBar"></div>
-        </div><!--increaseHealth--
-        <div class="controls"></div>
-        </div>
-    </div>-->
-    <button onclick="createEnemy();">CLICK ME TO CREATE</button>
-<button onclick="destroyEnemy();">CLICK ME TO DESTROY</button>
-</body>
+    </body>
 </html>
