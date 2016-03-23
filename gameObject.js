@@ -1,5 +1,7 @@
 var height = 0;  //used for screen height
 var width = 0;   //used for screen width
+var nativeHeight = 800;
+var nativeWidth = 480;
 
 function GameObject()
 {
@@ -28,8 +30,8 @@ function resize() {
   width = window.innerWidth;                //get window width
   height = window.innerHeight;              //get window height
   var screen = document.getElementById("gameScreen");
-  var scaleToFitX = width/800;
-  var scaleToFitY = height/480;
+  var scaleToFitX = width/nativeWidth;
+  var scaleToFitY = height/nativeHeight;
   var currentRatio = width/height;
   var optimalRatio = Math.min(scaleToFitX, scaleToFitY);
   var canvas = document.getElementById("gameScreen");
@@ -39,8 +41,8 @@ function resize() {
     canvas.style.height = height + "px";
   }
   else {
-    canvas.style.width = 800 * optimalRatio + "px";
-    canvas.style.height = 480 * optimalRatio + "px";
+    canvas.style.width = nativeWidth * optimalRatio + "px";
+    canvas.style.height = nativeHeight * optimalRatio + "px";
   }
 
   //screen.width = width;  //set canvas width to 100%
