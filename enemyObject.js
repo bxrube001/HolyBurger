@@ -69,15 +69,15 @@ function destroyEnemy(enemy)
 	//loadHolyMolies(holyBurger.currency);
 	enemyContext.clearRect(enemyXLocation, enemyYLocation, 600, 600);
 
-	/********
+	/****************************************************************************************************
 	 * Two options here. Option 1 is to pop the last enemy. This is appropriate while we only have one.
-	 */
+	 ****************************************************************************************************/
 	enemies.pop();
 
-	/*******************
+	/***************************************************************************************************************
 	 * Option two is to find the passed enemy and remove it, done in the commented line below. Provides more
 	 * extensibility. This is the fixed version of what you had, but it requires an identifier in the enemy class.
-	 */
+	 ***************************************************************************************************************/
 		//use if enemy has a unique identifier
 		//for (var i = 0; 0 < enemies.length; i++) {
 		//    if (enemies[i].id == enemy.id) {
