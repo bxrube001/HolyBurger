@@ -2,9 +2,9 @@ function HolyBurger()
 {
     //object data
     this.attackValue = 1;
-    this.healthPoints = 20;
+	this.healthPoints = 20;
     this.defense = 1;
-    this.currency = 0;
+	this.currency = 0;
     
     //object function
     this.saveCharacter = saveCharacter();
