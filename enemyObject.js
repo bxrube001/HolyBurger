@@ -190,3 +190,12 @@ function drawInitial(enemyType) {
 			break;
 	}
 };
+
+/***********************************************************************
+ * LoadLevel()
+ * Alters Enemy Stats based on the attributes of the holy burger object
+ * in play.
+ ***********************************************************************/
+function loadLevel() {
+
+};
