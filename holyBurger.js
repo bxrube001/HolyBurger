@@ -7,6 +7,6 @@ function startGame() {
 	// changeEnemyHealth(100); // needs to be commented out until these objects exist
 }
 
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
 	startGame();
-}
+});
