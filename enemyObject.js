@@ -3,21 +3,21 @@ var enemyAttack; //used for the periodical enemy strikes
 var attackRate = 1000/1; 	//number of periodical attacks per second
 var frameRate = 1000 / 20;
 var frame = 0;				//used to track current frame
-var enemyXLocation = parseInt(15);
-var enemyYLocation = parseInt(15);
+var enemyXLocation = 260;
+var enemyYLocation = 150;
 var enemyCanvas = null;
 var enemyContext = null;
 var ketchupAssets = [
-	'resources/KeriKetchup/keriketchup00.png'
+	'resources/KeriKetchup/180keriketchup00.png'
 ];
 var peteAssets = [
-	'resources/PicklePete/picklepete00.png'
+	'resources/PicklePete/180picklepete00.png'
 ];
 var pepAssets = [
-	'resources/PistolPep/pistolpep00.png'
+	'resources/PistolPep/180pistolpep00.png'
 ];
 var tomAssets = [
-	'resources/TerribleTom/terribletom00.png'
+	'resources/TerribleTom/180terribletom00.png'
 ];
 var animationFrames = [];	//used to store animation frames
 var standingImage = null;	//used to store current still-frame of enemy
@@ -149,7 +149,7 @@ function drawInitial(enemyType) {
 	standingImage = new Image();
 	switch(enemyType) {
 		case "pistolPep":
-			standingImage.src = "resources/PistolPep/pistolpep00.png";
+			standingImage.src = "resources/PistolPep/180pistolpep00.png";
 			standingImage.onload = function () {
 				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
 			};
@@ -159,7 +159,7 @@ function drawInitial(enemyType) {
 			}
 			break;
 		case "keriKetchup":
-			standingImage.src = 'resources/KeriKetchup/keriketchup00.png';
+			standingImage.src = 'resources/KeriKetchup/180keriketchup00.png';
 			standingImage.onload = function () {
 				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
 			};
@@ -169,7 +169,7 @@ function drawInitial(enemyType) {
 			}
 			break;
 		case "terribleTom":
-			standingImage.src = 'resources/TerribleTom/terribletom00.png';
+			standingImage.src = 'resources/TerribleTom/180terribletom00.png';
 			standingImage.onload = function () {
 				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
 			};
@@ -179,7 +179,7 @@ function drawInitial(enemyType) {
 			}
 			break;
 		case "picklePete":
-			standingImage.src = 'resources/PicklePete/picklepete00.png';
+			standingImage.src = 'resources/PicklePete/180picklepete00.png';
 			standingImage.onload = function () {
 				enemyContext.drawImage(standingImage, enemyXLocation, enemyYLocation);
 			};
