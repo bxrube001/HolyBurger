@@ -52,6 +52,7 @@ function resize() {
   for(var i = 0; i < enemies.length; i++) {
     drawInitial(enemies[i].enemyType);
   }
+  drawBurgerInitial();
 };
 
 /*******************************************************
