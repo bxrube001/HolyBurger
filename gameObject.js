@@ -3,6 +3,7 @@ var width = 0;   //used for screen width
 var nativeHeight = 800;
 var nativeWidth = 480;
 
+
 function GameObject()
 {
     //object data
@@ -173,7 +174,7 @@ function healthBar(){
 function updateBars(){
 	newAttack=holyMolies/upAttack;
 	document.getElementById("attackUpBar").style.width = newAttack % 1;
-	newDefense=holyMolies/upD;
+	newDefense=holyMolies/upDefense;
 	document.getElementById("defenseUpBar").style.width = newDefenseBar % 1;
 	newHealth=holyMolies/upAttack;
 	document.getElementById("healthUpBar").style.width = newHealth % 1;

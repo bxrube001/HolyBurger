@@ -4,6 +4,9 @@ var burgerXLocation = 50;
 var burgerYLocation = 150;
 var burgerCanvas = null;
 var burgerContext = null;
+var upAttack = null;
+var upDefense = null;
+var upHealth = null;
 var burgerAssets = [
     'resources/HolyBurgerImage/180holyburger00.png'
 ];
@@ -32,6 +35,9 @@ function createHolyBurger() {
     holyBurger = new HolyBurger();
     loadCharacter();
     drawBurgerInitial();
+    upAttack = holyBurger.attackValue * 2;
+    upDefense = holyBurger.defense * 3;
+    upHealth = holyBurger.healthPoints * 4;
 }
 
 /*******************************************************

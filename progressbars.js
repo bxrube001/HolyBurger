@@ -8,6 +8,8 @@ var cw1 = ctx1.canvas.width;
 var ch1 = ctx1.canvas.height; 
 var diff1;
 
+progressSim1()
+
 function progressSim1(){
 	diff1 = ((al1 / 100) * Math.PI*2*10).toFixed(2);
 	ctx1.clearRect(0, 0, cw1, ch1);
