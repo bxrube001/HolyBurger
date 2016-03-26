@@ -26,6 +26,20 @@ function initializeScreen() {
   resize();
 };
 
+function changeScreen() {
+  console.log("IMAGE HERE!");
+  var canvas = document.getElementById("gameScreen");
+  var ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var image = new Image();
+  image.src = "pattiImage.png";
+  image.onload = function() {
+    ctx.drawImage(image, 0, 0);
+  }
+}
+
 function resize() {
   width = window.innerWidth;                //get window width
   height = window.innerHeight;              //get window height
@@ -45,6 +59,11 @@ function resize() {
     canvas.style.height = nativeHeight * optimalRatio + "px";
   }
 
+  //Check for landscape
+  if(width > height) {
+      changeScreen();
+      return;
+  }
   //screen.width = width;  //set canvas width to 100%
   //screen.height = height; //set canvas height to 100%
   canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
