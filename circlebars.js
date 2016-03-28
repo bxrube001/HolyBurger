@@ -48,6 +48,39 @@ function progressBar() {
     al++;
 }
 
+function updateProgressBar(newPercent)
+{
+    diff = (newPercent / 100) * Math.PI * 2;
+    context.clearRect(x, y, w, h);
+    context.beginPath();
+    context.arc(cw, ch, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = '#FFF';
+    context.fill();
+    context.strokeStyle = '#e7f2ba';
+    context.stroke();
+    context.fillStyle = '#000';
+    context.strokeStyle = '#b3cf3c';
+    context.textAlign = 'center';
+    context.lineWidth = lw;
+    context.font = '10pt slackey';
+    if (newPercent < 100) {
+        context.beginPath();
+        context.arc(cw, ch, radius, start, diff + start, false);
+        context.stroke();
+        context.fillText(newPercent + '%', cw + 2, ch + 1);
+        context.fillText(health, cw + 2, ch + 15);
+    } else {
+        context.fillStyle = '#008000';
+        context.strokeStyle = '#fff';
+        context.font = 'bold 14px slackey';
+        context.fillText("Upgrade", cw + 2, ch + 6);
+
+    }
+    if (newPercent >= 100) {
+        clearTimeout(bar);
+    }
+}
+
 var bar = setInterval(progressBar, 50);
 
 //Defense Upgrade Button
